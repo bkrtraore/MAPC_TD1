@@ -1,6 +1,4 @@
-package td1.original.api.general;
-
-import java.util.HashMap;
+package td1.step1.api.general;
 
 public class Meat implements FoodProduct {
 

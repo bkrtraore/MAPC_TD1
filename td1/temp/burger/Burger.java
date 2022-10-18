@@ -1,25 +1,27 @@
-package td1.original.api.general;
+package td1.step2.api.burger;
+
+import td1.step2.api.restauration.WeightedFoodProduct;
 
 import java.util.List;
 
-public class Burger implements FoodProduct {
+public class Burger implements WeightedFoodProduct {
 
     String name;
-    List<FoodProduct> items;
+    List<Ingredient> items;
 
-    public Burger(String name, List<FoodProduct> items) {
+    public Burger(String name, List<Ingredient> items) {
         this.name = name;
         this.items = items;
     }
 
     @Override
     public double weight() {
-        return items.stream().map(Product::weight).reduce(0.0, Double::sum);
+        return items.stream().map(Ingredient::weight).reduce(0.0, Double::sum);
     }
 
     @Override
     public double price() {
-        return items.stream().map(Product::price).reduce(0.0, Double::sum);
+        return items.stream().map(Ingredient::price).reduce(0.0, Double::sum);
     }
 
     @Override
@@ -41,22 +43,22 @@ public class Burger implements FoodProduct {
 
     @Override
     public double calories_per_100g() {
-        double calories_per_100g = 0;
-        for (FoodProduct p : items
-        ) {
-            calories_per_100g += p.calories_per_100g();
-        }
-        return calories_per_100g;
+        return (calories()*100)/weight();
     }
 
     @Override
     public double calories() {
         double calories = 0;
-        for (FoodProduct p : items
+        for (WeightedFoodProduct p : items
         ) {
             calories += p.calories();
         }
         return calories;
+    }
+
+    @Override
+    public boolean hasUniquePrice() {
+        return false;
     }
 }
 

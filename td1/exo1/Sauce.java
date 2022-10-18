@@ -1,4 +1,4 @@
-package td1.original.api.general;
+package td1.step1.api.general;
 
 public class Sauce implements FoodProduct {
 

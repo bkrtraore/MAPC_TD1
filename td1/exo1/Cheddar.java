@@ -1,12 +1,11 @@
-package td1.original.api.general;
+package td1.step1.api.general;
 
-public class DeepFriedOnions implements FoodProduct {
-    // 590 kcal / 100g
-    private int calories = 590;
+public class Cheddar implements FoodProduct {
+    // 400 kcal / 100g
+    private int calories = 400;
     private double weight;
-    private double BASE_PRICE = 1.5;
-
-    public DeepFriedOnions(double weight) {
+    private double BASE_PRICE = 4;
+    public Cheddar(double weight) {
         this.weight = weight;
     }
 
@@ -22,9 +21,8 @@ public class DeepFriedOnions implements FoodProduct {
 
     @Override
     public String toString() {
-        return String.format("deep fried onions (%.0fg) -- %.2f€", weight(), price());
+        return String.format("cheddar (%.0fg) -- %.2f€", weight(), price());
     }
-
     @Override
     public double calories() {
         return (weight*calories_per_100g())/100;
@@ -32,8 +30,6 @@ public class DeepFriedOnions implements FoodProduct {
 
     @Override
     public double calories_per_100g() {
-        return 590;
+        return 400;
     }
-
-
 }

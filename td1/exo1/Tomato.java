@@ -1,11 +1,11 @@
-package td1.original.api.general;
+package td1.step1.api.general;
 
-public class Cheddar implements FoodProduct {
-    // 400 kcal / 100g
-    private int calories = 400;
+public class Tomato implements FoodProduct {
+
     private double weight;
-    private double BASE_PRICE = 4;
-    public Cheddar(double weight) {
+    private double BASE_PRICE = 0.5;
+
+    public Tomato(double weight) {
         this.weight = weight;
     }
 
@@ -21,8 +21,9 @@ public class Cheddar implements FoodProduct {
 
     @Override
     public String toString() {
-        return String.format("cheddar (%.0fg) -- %.2f€", weight(), price());
+        return String.format("tomato, qty: %.0f -- %.2f", weight(), price());
     }
+
     @Override
     public double calories() {
         return (weight*calories_per_100g())/100;
@@ -30,6 +31,6 @@ public class Cheddar implements FoodProduct {
 
     @Override
     public double calories_per_100g() {
-        return 400;
+        return 0;
     }
 }

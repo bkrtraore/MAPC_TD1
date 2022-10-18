@@ -1,11 +1,12 @@
-package td1.original.api.general;
+package td1.step1.api.general;
 
-public class Tomato implements FoodProduct {
-
+public class DeepFriedOnions implements FoodProduct {
+    // 590 kcal / 100g
+    private int calories = 590;
     private double weight;
-    private double BASE_PRICE = 0.5;
+    private double BASE_PRICE = 1.5;
 
-    public Tomato(double weight) {
+    public DeepFriedOnions(double weight) {
         this.weight = weight;
     }
 
@@ -21,7 +22,7 @@ public class Tomato implements FoodProduct {
 
     @Override
     public String toString() {
-        return String.format("tomato, qty: %.0f -- %.2f", weight(), price());
+        return String.format("deep fried onions (%.0fg) -- %.2f€", weight(), price());
     }
 
     @Override
@@ -31,6 +32,8 @@ public class Tomato implements FoodProduct {
 
     @Override
     public double calories_per_100g() {
-        return 0;
+        return 590;
     }
+
+
 }

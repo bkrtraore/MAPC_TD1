@@ -1,6 +1,6 @@
 package td1.original.client;
 
-import td1.original.api.general.*;
+import td1.original.step1.api.general.*;
 
 
 import java.util.Arrays;

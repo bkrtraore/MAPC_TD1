@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+td1.iml
+.idea

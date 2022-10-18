@@ -1,16 +1,8 @@
 package td1.original.api.general;
 
-public class Sauce implements Product {
-
-    public static enum SauceType {
-        BURGER, BARBECUE, BEARNAISE;
-        // BURGER : 240 kcal / 100g
-        // BARBECUE : 130 kcal / 100g
-        // BEARNAISE : 550 kcal / 100g
-    }
+public class Sauce implements FoodProduct {
 
     private static double BASE_PRICE = 1;
-
     private SauceType type;
     private double weight;
 
@@ -24,6 +16,22 @@ public class Sauce implements Product {
         return BASE_PRICE;
     }
 
+    @Override
+    public double calories() {
+        return (weight*calories_per_100g())/100;
+    }
+
+    public double calories_per_100g() {
+
+        if (type.equals(SauceType.BURGER))
+            return 240;
+        else if (type.equals(SauceType.BARBECUE)) {
+            return 130;
+        } else if (type.equals(SauceType.BEARNAISE)) {
+            return 550;
+        }
+        return 0;
+    }
     @Override
     public double weight() {
         return weight;

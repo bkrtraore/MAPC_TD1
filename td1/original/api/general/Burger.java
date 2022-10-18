@@ -2,12 +2,12 @@ package td1.original.api.general;
 
 import java.util.List;
 
-public class Burger implements Product {
+public class Burger implements FoodProduct {
 
     String name;
-    List<Product> items;
+    List<FoodProduct> items;
 
-    public Burger(String name, List<Product> items) {
+    public Burger(String name, List<FoodProduct> items) {
         this.name = name;
         this.items = items;
     }
@@ -23,24 +23,6 @@ public class Burger implements Product {
     }
 
     @Override
-    public int getCalories() {
-        return 0;
-    }
-
-    public int calories(){
-        int cal = 0;
-        for (Product p : items
-             ) {
-            p.weight()*p.getCal();
-        }
-        return cal;
-    }
-
-    public int calories100g(){
-        return 0;
-    }
-
-    @Override
     public String toString() {
         final String DELIM = "--------------------\n";
         StringBuilder buffer = new StringBuilder();
@@ -51,9 +33,30 @@ public class Burger implements Product {
         buffer.append(DELIM);
         buffer.append(String.format("price:         %.2f\n", price()));
         buffer.append(DELIM);
-        buffer.append(String.format("calories:         %d\n", price()));
-        buffer.append(String.format("calories/100g::         %d\n", price()));
+        buffer.append(String.format("calories:     %.1f\n", calories()));
+        buffer.append(String.format("calories/100g:%.1f\n", calories_per_100g()));
         buffer.append(DELIM);
         return buffer.toString();
     }
+
+    @Override
+    public double calories_per_100g() {
+        double calories_per_100g = 0;
+        for (FoodProduct p : items
+        ) {
+            calories_per_100g += p.calories_per_100g();
+        }
+        return calories_per_100g;
+    }
+
+    @Override
+    public double calories() {
+        double calories = 0;
+        for (FoodProduct p : items
+        ) {
+            calories += p.calories();
+        }
+        return calories;
+    }
 }
+

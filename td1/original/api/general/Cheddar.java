@@ -1,6 +1,6 @@
 package td1.original.api.general;
 
-public class Cheddar implements Product {
+public class Cheddar implements FoodProduct {
     // 400 kcal / 100g
     private int calories = 400;
     private double weight;
@@ -23,8 +23,13 @@ public class Cheddar implements Product {
     public String toString() {
         return String.format("cheddar (%.0fg) -- %.2f€", weight(), price());
     }
+    @Override
+    public double calories() {
+        return (weight*calories_per_100g())/100;
+    }
 
-    public int getCalories() {
-        return calories;
+    @Override
+    public double calories_per_100g() {
+        return 400;
     }
 }

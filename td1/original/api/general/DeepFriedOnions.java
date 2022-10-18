@@ -1,6 +1,6 @@
 package td1.original.api.general;
 
-public class DeepFriedOnions implements Product {
+public class DeepFriedOnions implements FoodProduct {
     // 590 kcal / 100g
     private int calories = 590;
     private double weight;
@@ -25,7 +25,15 @@ public class DeepFriedOnions implements Product {
         return String.format("deep fried onions (%.0fg) -- %.2f€", weight(), price());
     }
 
-    public int getCalories() {
-        return calories;
+    @Override
+    public double calories() {
+        return (weight*calories_per_100g())/100;
     }
+
+    @Override
+    public double calories_per_100g() {
+        return 590;
+    }
+
+
 }

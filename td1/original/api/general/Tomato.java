@@ -1,6 +1,6 @@
 package td1.original.api.general;
 
-public class Tomato implements Product {
+public class Tomato implements FoodProduct {
 
     private double weight;
     private double BASE_PRICE = 0.5;
@@ -22,5 +22,15 @@ public class Tomato implements Product {
     @Override
     public String toString() {
         return String.format("tomato, qty: %.0f -- %.2f", weight(), price());
+    }
+
+    @Override
+    public double calories() {
+        return (weight*calories_per_100g())/100;
+    }
+
+    @Override
+    public double calories_per_100g() {
+        return 0;
     }
 }

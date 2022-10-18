@@ -2,28 +2,10 @@ package td1.original.api.general;
 
 import java.util.HashMap;
 
-public class Meat implements Product {
-    public enum MeatType {
-        BEEF, WHITEFISH;
-        // BEEF : 200 kcal / 100g
-        // WHITEFISH : 170 kcal / 100g
+public class Meat implements FoodProduct {
 
-        public double price() {
-            double rtr;
-            switch (this) {
-                case WHITEFISH:
-                    rtr = 6;
-                    break;
-                case BEEF:
-                default:
-                    rtr = 4;
-            }
-            return rtr;
-        }
-    }
     private MeatType type;
     private double weight;
-
     public Meat(MeatType type, double weight) {
         this.type = type;
         this.weight = weight;
@@ -44,12 +26,20 @@ public class Meat implements Product {
         return String.format("%s (%.0fg) -- %.2f€", type, weight(), price());
     }
 
-    public int getCalFromBeef(){
-        return 200;
+
+    @Override
+    public double calories_per_100g() {
+        /*if (this.type.equals(MeatType.BEEF))
+            return 200;
+        else if (this.type.equals(MeatType.WHITEFISH)) {
+            return 170;
+        }
+        return 0;*/
+        return type.calories_per_100g();
     }
 
-    public int getCalFromFish(){
-        return 170;
+    @Override
+    public double calories() {
+        return (weight*calories_per_100g())/100;
     }
-
 }

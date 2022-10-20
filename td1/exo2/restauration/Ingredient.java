@@ -1,28 +1,22 @@
-package td1.temp.burger;
+package td1.exo2.restauration;
 
-import td1.temp.restauration.WeightedFoodProduct;
+import java.util.List;
 
-public class Ingredient implements WeightedFoodProduct {
+public class Ingredient implements Food{
 
+    private Base base;
     private double weight;
 
     public Ingredient(double weight) {
         this.weight = weight;
     }
 
-    @Override
     public double calories_per_100g() {
         return 0;
     }
 
-    @Override
     public double price() {
         return 0;
-    }
-
-    @Override
-    public boolean hasUniquePrice() {
-        return false;
     }
 
     @Override
@@ -32,6 +26,6 @@ public class Ingredient implements WeightedFoodProduct {
 
     @Override
     public double calories() {
-        return 0;
+        return (weight*calories_per_100g())/100;
     }
 }

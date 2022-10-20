@@ -1,4 +1,4 @@
-package td1.step1.api.general;
+package td1.exo1;
 
 public class DeepFriedOnions implements FoodProduct {
     // 590 kcal / 100g

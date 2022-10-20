@@ -1,11 +1,10 @@
-package td1.temp.burger;
+package td1.exo2.burger;
 
-import td1.temp.restauration.FoodProduct;
+import td1.exo2.restauration.Base;
 
-public enum FoodType  implements FoodProduct {
-    BURGER, BARBECUE, BEARNAISE, BEEF, WHITEFISH,
-    CHEDDAR, DEEPFRIEDONIONS, TOMATO;
-
+public enum BurgerBase implements Base {
+    BURGER, BARBECUE, BEARNAISE, BEEF,
+    WHITEFISH, CHEDDAR, DEEPFRIEDONIONS, TOMATO;
 
     @Override
     public double calories_per_100g() {

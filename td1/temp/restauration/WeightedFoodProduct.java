@@ -1,4 +1,4 @@
-package td1.step2.api.restauration;
+package td1.temp.restauration;
 
 public interface WeightedFoodProduct extends FoodProduct {
     double weight();

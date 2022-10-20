@@ -1,6 +1,6 @@
-package td1.step2.api.burger;
+package td1.temp.burger;
 
-import td1.step2.api.restauration.WeightedFoodProduct;
+import td1.temp.restauration.WeightedFoodProduct;
 
 public class Ingredient implements WeightedFoodProduct {
 

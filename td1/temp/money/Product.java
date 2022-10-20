@@ -1,4 +1,4 @@
-package td1.step2.api.money;
+package td1.temp.money;
 
 public interface Product {
     double price();

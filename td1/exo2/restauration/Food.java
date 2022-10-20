@@ -1,5 +1,9 @@
-package td1.exo1;
+package td1.exo2.restauration;
 
-public interface Food {
-    double calories_per_100g();
+import td1.exo2.dietetic.DieteticElement;
+import td1.exo2.monetary.Product;
+
+public interface Food extends Product, DieteticElement {
+    double weight();
+    double calories();
 }

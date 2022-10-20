@@ -1,5 +1,5 @@
-package td1.temp.food;
+package td1.exo2.dietetic;
 
-public interface Food {
+public interface DieteticElement {
     double calories_per_100g();
 }

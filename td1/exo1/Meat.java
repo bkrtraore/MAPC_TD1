@@ -27,12 +27,6 @@ public class Meat implements FoodProduct {
 
     @Override
     public double calories_per_100g() {
-        /*if (this.type.equals(MeatType.BEEF))
-            return 200;
-        else if (this.type.equals(MeatType.WHITEFISH)) {
-            return 170;
-        }
-        return 0;*/
         return type.calories_per_100g();
     }
 

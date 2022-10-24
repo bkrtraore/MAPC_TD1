@@ -1,0 +1,125 @@
+@startuml
+
+package td1.exo1 {
+interface FoodProduct
+interface Food
+interface Product
+class Burger
+class Cheddar
+class DeepFriedOnions
+class Meat
+enum MeatType
+class Sauce
+enum SauceType
+class Tomato
+
+FoodProduct <|.. Burger
+FoodProduct <|.. Cheddar
+FoodProduct <|.. DeepFriedOnions
+FoodProduct <|.. Meat
+FoodProduct <|.. Sauce
+FoodProduct <|.. Tomato
+FoodProduct <|.. Whitefish
+
+Food <|-- FoodProduct
+Product <|-- FoodProduct
+
+interface FoodProduct {
+    calories() : double
+}
+
+interface Food {
+    calories_per_100g() : double
+}
+
+interface Product {
+    weight() : double
+    price() : double
+}
+
+enum MeatType {
+    BEEF, WHITEFISH
+    price() : double
+    calories_per_100g() : double
+}
+
+enum SauceType {
+    BURGER, BARBECUE, BEARNAISE
+}
+
+class Burger {
+    name : String
+
+}
+
+class Cheddar {
+   calories : int = 400
+   weight : double
+   BASE_PRICE : double = 4
+
+   this(weight : double) : Cheddar
+   weight() : double
+   price() : double
+   toString() : string
+   calories() : double
+   calories_per_100g() : double
+}
+
+class DeepFriedOnions {
+    calories : int = 590
+    weight : double
+    BASE_PRICE : double = 1.5
+
+    this(weight : double) : DeepFriedOnions
+    weight() : double
+    price() : double
+    toString() : string
+    calories() : double
+    calories_per_100g() : double
+}
+
+class Meat {
+
+    type : MeatType
+    weight : double
+
+    this(type: MeatType, weight : double) : Meat
+    weight() : double
+    price() : double
+    toString() : string
+    calories() : double
+    calories_per_100g() : double
+}
+
+class Sauce {
+    type : SauceType
+    weight : double
+    BASE_PRICE : double = 1
+
+    this(type: SauceType, weight : double) : Sauce
+    weight() : double
+    price() : double
+    toString() : string
+    calories() : double
+    calories_per_100g() : double
+}
+
+class Tomato {
+    weight : double
+    BASE_PRICE : double = 0.5
+
+    this(weight : double) : Tomato
+    weight() : double
+    price() : double
+    toString() : string
+    calories() : double
+    calories_per_100g() : double
+}
+}
+
+package td1.client{
+class App
+
+
+}
+@enduml

@@ -1,4 +1,4 @@
-package td1.temp.restauration;
+package td1.exo3Try.restauration;
 
 public interface WeightedFoodProduct extends FoodProduct {
     double weight();
